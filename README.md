@@ -1,12 +1,15 @@
 ## Lesson 1 : Editing the CMAKELIST file for C++ executable (example using simple.cpp)
+Here i am using a variable name to which i give the name of the .cpp executable simple_service_server file. 
 ```
-add_executable(simple src/simple.cpp)
-add_dependencies(simple ${simple_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(simple
+set(name "simple_service_server")
+add_executable(${name} src/${name}.cpp)
+add_dependencies(${name} ${${name}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${name}
    ${catkin_LIBRARIES}
  )
+
 ```
-It will generate a binary simple inside devel/lib.
+Add such lines for each .cpp files in the /src folder. It will generate a binary simple inside devel/lib.
 
 
 ## Lesson 2 : Using custom message type Age.msg example
