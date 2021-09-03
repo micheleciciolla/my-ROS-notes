@@ -8,6 +8,8 @@ target_link_libraries(${name}
    ${catkin_LIBRARIES}
  )
 
+ 
+
 ```
 Add such lines for each .cpp files in the /src folder. It will generate a binary simple inside devel/lib.
 
