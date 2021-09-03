@@ -171,8 +171,30 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   my_custom_srv_msg_pkg
 )
+
 ```
 
+## Lesson 9 - Use custom action messages
+
+if you file describing the message of the action server is CustomActionMsg.action in the package actions_quiz, then you will need to import 
+```
+#include <actions_quiz/CustomActionMsgAction.h>
+```
+at the beginning of each client and server .cpp file. 
+
+The action server you will create will be of the type SimpleActionServer using that kind of message CustomActionMsgAction. Consider that in CustomActionMsgAction, Action is appended to your-name message.
+```
+actionlib::SimpleActionServer<actions_quiz::CustomActionMsgAction> as_;
+```
+I dont know if this is classic, but the class implementing this stuff should be the same name of the message.
+
+```
+class CustomActionMsgAction {
+  .
+  .
+  .
+};
+```
 
 
 
