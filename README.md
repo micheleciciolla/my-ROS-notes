@@ -16,3 +16,16 @@ https://i-0248b2c151986e466.robotigniteacademy.com/b49a3b5a-1b70-433c-ba13-7f607
 Solution to 9 using custom action messages
 
 https://i-02277c3e9e05accdf.robotigniteacademy.com/5e32a7e5-998a-4d2f-81ed-244d34603f37/jupyter/notebooks/basic_ROS_Cpp/extra_files/actions_quiz_solutions_cpp.ipynb
+
+## Remove links of git folders that are in your git repo
+For each of the folders:
+```
+git rm --cached submodule_path # delete reference to submodule HEAD (no trailing slash)
+git rm .gitmodules             # if any (dont worry if there's no files)
+rm -rf submodule_path/.git     
+```
+Do the above commands for each git repo you want to delink and finally:
+```
+git add *                      # will add files 
+git commit -m "your message"
+```
