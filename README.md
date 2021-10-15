@@ -37,3 +37,5 @@ The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
     <node name="publisher_node" pkg="my_robot_tutorials" type="publisher" />
 </launch>
 ```
+<remap from="EXPRECTED TOPIC FROM BELOW" to="THE TOPIC YOU HAVE" />
+
