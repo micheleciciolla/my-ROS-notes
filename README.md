@@ -29,3 +29,11 @@ Do the above commands for each git repo you want to delink and finally:
 git add *                      # will add files 
 git commit -m "your message"
 ```
+## Remapping 
+The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
+```
+<launch>
+    <remap from="topic1" to="topic2" />
+    <node name="publisher_node" pkg="my_robot_tutorials" type="publisher" />
+</launch>
+```
