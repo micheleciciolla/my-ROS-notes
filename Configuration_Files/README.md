@@ -175,14 +175,24 @@ find_package(catkin REQUIRED COMPONENTS
    
    > It might happend that your compiling process fails saying that it cannot find the srv message type 
    ```
+   Errors     << object_detection_yolo:make /home/mic/workspaces/catkin_pixies_ws/logs/object_detection_yolo/build.make.000.log                                                                             
+/home/mic/workspaces/catkin_pixies_ws/src/object_detection_yolo/src/filter_pointcloud_demonstration.cpp:29:10: fatal error: object_detection_yolo/PointCloudFilterSrv2.h: No such file or directory
+   29 | #include "object_detection_yolo/PointCloudFilterSrv2.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/filter_pointcloud_demonstration.dir/build.make:63: CMakeFiles/filter_pointcloud_demonstration.dir/src/filter_pointcloud_demonstration.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2786: CMakeFiles/filter_pointcloud_demonstration.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
+cd /home/mic/workspaces/catkin_pixies_ws/build/object_detection_yolo; catkin build --get-env object_detection_yolo | catkin env -si  /usr/bin/make --jobserver-auth=3,4; cd -
+
    
    ```
    In my experience the following trick solves the problem. Go to your CMakeList.txt and comment the cpp script part and compile. This should be fine with no errors since you're not considering anymore those cpp raising errors. After that add the following termn <yourpackage>_generate_messages_cpp to the usual lines:
    
    ```
-   set(name5 "your_badass_cpp_script")
+   set(name5 "<yourscript>")
 add_executable(${name5} src/${name5}.cpp)
-add_dependencies(${name5} ${${name5}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} `your_badass_package_script_generate_messages_cpp`)
+add_dependencies(${name5} ${${name5}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} <yourpackage>_generate_messages_cpp)
 target_link_libraries(${name5}
   ${catkin_LIBRARIES}
 )
