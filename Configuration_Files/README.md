@@ -172,6 +172,21 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 ```
+   
+   > It might happend that your compiling process fails saying that it cannot find the srv message type 
+   ```
+   
+   ```
+   In my experience the following trick solves the problem. Go to your CMakeList.txt and comment the cpp script part and compile. This should be fine with no errors since you're not considering anymore those cpp raising errors. After that add the following termn <yourpackage>_generate_messages_cpp to the usual lines:
+   
+   ```
+   set(name5 "your_badass_cpp_script")
+add_executable(${name5} src/${name5}.cpp)
+add_dependencies(${name5} ${${name5}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} `your_badass_package_script_generate_messages_cpp`)
+target_link_libraries(${name5}
+  ${catkin_LIBRARIES}
+)
+   ```
 
 ## Lesson 9 - Use custom action messages
 
