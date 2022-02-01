@@ -1,5 +1,8 @@
 ## My Notes taken during the ROS course of theconstruct.sim website
 
+## How to build libraries using make
+[link](https://github.com/ethz-asl/libpointmatcher/blob/master/doc/CompilationUbuntu.md)
+
 ## Setting up Visual Studio Code to work with ROS
 [link](https://answers.ros.org/question/256565/how-to-add-ros-to-path-in-vs-code/)
 and follow the Diogo42 answer
