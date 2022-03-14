@@ -42,3 +42,25 @@ The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
 ```
 <remap from="EXPRECTED TOPIC FROM BELOW" to="THE TOPIC YOU HAVE" />
 
+## Assign static USB /dev port to a device
+
+1. You need to get the /dev/ttyACMx of the device
+2. If for example your device is ttyAMC0 type this command
+    ```
+    udevam info --name=/dev/ttyACM0 --attribute-walk
+    ```
+3. Now you need to look for a unique attribute identifying the device like **idVendor** or **idProduct** 
+4. go to /etc/udev/rules.d/99-udsb-serial.rules (create of edit) and type the following lines
+    ```
+    KERNEL=="ttyACM*", ATTRS{idProduct}=="0043", SYMLINK+="mydevice"
+    ```
+ 5. reload the udevam rules and plug/unplug the device
+    ```
+    udevam control --reload-rules
+    ```
+ 6. check that you can detect it
+    ```
+    ls /dev | grep mydevice
+    ```
+ more info [here](https://github.com/gmp-prem/assigning-static-port-ubuntu/blob/main/README.md) and [here](https://msadowski.github.io/linux-static-port/)
+
