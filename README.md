@@ -64,3 +64,7 @@ The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
     ```
  more info [here](https://github.com/gmp-prem/assigning-static-port-ubuntu/blob/main/README.md) and [here](https://msadowski.github.io/linux-static-port/)
 
+## Make two computers and wifi router communicates via ROS
+
+1. [read the docs from RISC lab](https://risc.readthedocs.io/2-ros-network-wifi-ethernet.html)
+2. [brennanyama](https://github.com/brennanyama/RobotOperatingSystem/wiki/ROS-network-setup-between-two-devices-via-ethernet-cable)
