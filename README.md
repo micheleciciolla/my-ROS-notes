@@ -47,7 +47,7 @@ The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
 1. You need to get the /dev/ttyACMx of the device
 2. If for example your device is ttyAMC0 type this command
     ```
-    udevam info --name=/dev/ttyACM0 --attribute-walk
+    udevadm info --name=/dev/ttyACM0 --attribute-walk
     ```
 3. Now you need to look for a unique attribute identifying the device like **idVendor** or **idProduct** 
 4. go to /etc/udev/rules.d/99-udsb-serial.rules (create of edit) and type the following lines
@@ -56,7 +56,7 @@ The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
     ```
  5. reload the udevam rules and plug/unplug the device
     ```
-    udevam control --reload-rules
+    udevadm control --reload-rules
     ```
  6. check that you can detect it
     ```
