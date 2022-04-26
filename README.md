@@ -49,6 +49,15 @@ The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
     ```
     udevadm info --name=/dev/ttyACM0 --attribute-walk
     ```
+    An alternative process might be to use the command 
+    ```
+    usb-devices
+    ``` 
+    or 
+    ```
+    lsusb or dmesg
+    ```
+    to list all the devices and save the **ID 8086:0b07** code. The first part of the code, in this case 8086, is the idVendor of the product while the second is the idProduct.
 3. Now you need to look for a unique attribute identifying the device like **idVendor** or **idProduct** 
 4. go to /etc/udev/rules.d/99-udsb-serial.rules (create of edit) and type the following lines
     ```
