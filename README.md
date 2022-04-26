@@ -63,7 +63,7 @@ The topic 2 in the system is remapped into topic 1 since publisher.py needs it.
     ```
     KERNEL=="ttyACM*", ATTRS{idProduct}=="0043", SYMLINK+="mydevice"
     ```
- 5. reload the udevam rules and plug/unplug the device
+ 5. reload the udevam rules and plug/unplug the device or **reboot** the computer
     ```
     udevadm control --reload-rules
     ```
