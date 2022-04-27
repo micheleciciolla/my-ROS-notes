@@ -1,5 +1,13 @@
 ## My Notes taken during the ROS course of theconstruct.sim website
 
+## Create a catkin workspace extending ros environment
+
+Use [catkin tools](https://catkin-tools.readthedocs.io/en/latest/quick_start.html)
+
+```
+catkin config --extend /opt/ros/noetic
+```
+
 ## How to build libraries using make
 [link](https://github.com/ethz-asl/libpointmatcher/blob/master/doc/CompilationUbuntu.md)
 
